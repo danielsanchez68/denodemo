@@ -5,7 +5,7 @@ class ApiPalabras {
     PalabrasDAO : Ifactory
 
     constructor() {
-        this.PalabrasDAO = PalabrasFactoryDAO.get('MEM')
+        this.PalabrasDAO = PalabrasFactoryDAO.get('MONGO')
     }
 
     async obtenerPalabras():Promise<string> { 

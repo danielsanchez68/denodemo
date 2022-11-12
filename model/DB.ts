@@ -1,4 +1,4 @@
-import { MongoClient,Database } from "../deps.ts";
+import { MongoClient,Database, config } from "../deps.ts";
 
 class CnxMongo {
     static conectada = false
@@ -9,7 +9,8 @@ class CnxMongo {
 
             console.log("Conectando a la base de datos...");
             // Connecting to a Local Database
-            await client.connect("mongodb://127.0.0.1:27017");
+            //await client.connect("mongodb://127.0.0.1:27017");
+            await client.connect(config().STRCNX);
 
             // Connecting to a Mongo Atlas Database
             /* await client.connect({
@@ -27,10 +28,10 @@ class CnxMongo {
                     db: "<db_name>",
                     mechanism: "SCRAM-SHA-1",
                 },
-            });
+            }); */
 
             // Connect using srv url
-            await client.connect(
+            /* await client.connect(
                 "mongodb+srv://<username>:<password>@<db_cluster_url>/<db_name>?authMechanism=SCRAM-SHA-1",
             ); */
 

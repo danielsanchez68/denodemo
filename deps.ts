@@ -4,3 +4,4 @@ export {
   MongoClient,
   Database
 } from "https://deno.land/x/mongo@v0.31.1/mod.ts";
+export { config } from "https://deno.land/x/dotenv/mod.ts";

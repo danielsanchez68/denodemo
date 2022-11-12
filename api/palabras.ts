@@ -1,11 +1,11 @@
-import PalabrasFactoryDAO from '../model/DAOs/PalabrasFactory.ts'
+import PalabrasFactoryDAO from '../model/DAOs/palabrasFactory.ts'
 import { Ipalabra, Ifactory } from '../interfaces/palabra.ts'
 
 class ApiPalabras {
     PalabrasDAO : Ifactory
 
     constructor() {
-        this.PalabrasDAO = PalabrasFactoryDAO.get('MONGO')
+        this.PalabrasDAO = PalabrasFactoryDAO.get('MEM')
     }
 
     async obtenerPalabras():Promise<string> { 

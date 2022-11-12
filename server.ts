@@ -9,7 +9,7 @@ app.use(json());
 /*             ZONA DE RUTAS MANEJADAS POR EL ROUTER             */
 /* ------------------------------------------------------------- */
 app.get('/ping',(_,res) => {
-    res.send('pong')
+    res.send('PONG')
 })
 
 app.use('/palabras', new RouterPalabras().start())

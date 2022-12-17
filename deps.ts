@@ -1,4 +1,4 @@
-export { json, opine, Router } from "https://deno.land/x/opine@2.1.4/mod.ts";
+export { json, opine, serveStatic, Router } from "https://deno.land/x/opine@2.1.4/mod.ts";
 export {
   ObjectId,
   MongoClient,

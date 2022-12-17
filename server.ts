@@ -1,15 +1,30 @@
-import { opine, json  } from "./deps.ts";
+//https://dev.to/craigmorten/opine-tutorial-part-1-express-for-deno-5nb
+import { opine, json, serveStatic  } from "./deps.ts";
 import RouterPalabras from './router/palabras.ts'
 import CnxMongo from './model/DB.ts'
 
 const app = opine();
 app.use(json());
+//app.use(serveStatic("public"));
 
 /* ------------------------------------------------------------- */
 /*             ZONA DE RUTAS MANEJADAS POR EL ROUTER             */
 /* ------------------------------------------------------------- */
+app.get('/',(_,res) => {
+  res.send('Bienvenido al servidor MVC')
+})
+
 app.get('/ping',(_,res) => {
-    res.send('PONG')
+  res.send('PONG')
+})
+
+app.get('/verif',(req,res) => {
+  const { num } = req.query
+  const casos = 5
+  const random = Number((Math.random() * casos).toFixed(0)) + 1
+  const irregular  = (random % casos) == 0
+
+  res.json({ num, irregular })
 })
 
 app.use('/palabras', new RouterPalabras().start())

@@ -5,7 +5,7 @@ import CnxMongo from './model/DB.ts'
 
 const app = opine();
 app.use(json());
-//app.use(serveStatic("public"));
+app.use(serveStatic("public"));
 
 /* ------------------------------------------------------------- */
 /*             ZONA DE RUTAS MANEJADAS POR EL ROUTER             */

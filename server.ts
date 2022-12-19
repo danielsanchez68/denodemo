@@ -22,9 +22,11 @@ app.get('/verif',(req,res) => {
   const { num } = req.query
   const casos = 5
   const random = Number((Math.random() * casos).toFixed(0)) + 1
-  const irregular  = (random % casos) == 0
+  let irregular  = (random % casos) == 0
 
-  res.json({ num, irregular })
+  if(!num) irregular = false
+
+  res.json({ num: num || '???', irregular })
 })
 
 app.use('/palabras', new RouterPalabras().start())

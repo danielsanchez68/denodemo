@@ -24,7 +24,7 @@ app.get('/verif',(req,res) => {
   const random = Number((Math.random() * casos).toFixed(0)) + 1
   let irregular  = (random % casos) == 0
 
-  if(!num) irregular = false
+  if(!num) irregular = true
 
   res.json({ num: num || '???', irregular })
 })

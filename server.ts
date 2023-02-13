@@ -29,6 +29,17 @@ app.get('/verif',(req,res) => {
   res.json({ num: num || '???', irregular })
 })
 
+
+let numSorteo = 0
+
+app.get('/premios',(_,res) => {
+  const casos = 10
+  const random = Number((Math.random() * casos).toFixed(0)) + 1
+  const premio  = (random % casos) == 0
+
+  res.json({ sorteo: ++numSorteo, premio:premio })
+})
+
 app.use('/palabras', new RouterPalabras().start())
 
 /* ------------------------------------------------------------- */
